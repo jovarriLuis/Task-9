@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 6 - Conditionals</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            min-height: 100vh;
+        }
+
+        .card {
+            border-radius: 20px;
+            border: none;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn {
+            border-radius: 12px;
+            padding: 0.75rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .door-btn {
+            font-size: 4rem;
+            padding: 2rem;
+            background: white;
+            border: 3px solid #dee2e6;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .door-btn:hover {
+            transform: scale(1.1);
+            border-color: #ff9a9e;
+            box-shadow: 0 10px 30px rgba(255, 154, 158, 0.3);
+        }
+
+        .alert {
+            border-radius: 10px;
+            border: none;
+        }
+
+        .progress-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .progress-dot.active {
+            background: #ff9a9e;
+        }
+
+        .progress-dot.inactive {
+            background: #dee2e6;
+        }
+    </style>
+</head>
+<body class="d-flex justify-content-center align-items-center">
+    
+    <div class="card shadow-lg p-5 text-center" style="width: 32rem;">
+
+        <span class="badge bg-danger mb-3 align-self-start" style="font-size: 0.9rem; padding: 0.5rem 1rem; border-radius: 10px;">Level 6</span>
+        
+        <h1 class="card-title mb-3" style="font-weight: 700; color: #2c3e50;">Choose Your Door</h1>
+        
+        <p class="card-text text-muted mb-4" style="font-size: 1.05rem;">Pick the correct door to complete the quest!</p>
+
+        <div id="message"></div>
+
+        <div class="d-flex justify-content-center gap-3 mb-4">
+            <button class="door-btn" onclick="checkDoor(1)">🚪</button>
+            <button class="door-btn" onclick="checkDoor(2)">🚪</button>
+            <button class="door-btn" onclick="checkDoor(3)">🚪</button>
+        </div>
+
+        <!-- Progress Dots -->
+        <div class="d-flex justify-content-center gap-2 mb-4">
+            <div class="progress-dot active"></div>
+            <div class="progress-dot active"></div>
+            <div class="progress-dot active"></div>
+            <div class="progress-dot active"></div>
+            <div class="progress-dot active"></div>
+            <div class="progress-dot active"></div>
+        </div>
+
+        <div class="d-flex justify-content-between gap-3">
+            <a href="level5.html" class="btn btn-secondary flex-fill">← Back</a>
+            <a href="level1.html" class="btn btn-danger flex-fill" style="text-decoration: none;">↻ Restart</a>
+        </div>
+
+        <p class="mt-4 mb-0 text-muted" style="font-size: 0.85rem;">📍 Level 6 of 6 — Conditionals</p>
+    </div>
+
+    <script>
+        const correctDoor = 2;
+        const message = document.getElementById('message');
+
+        function checkDoor(doorNumber) {
+            if (doorNumber === correctDoor) {
+                message.innerHTML = '<div class="alert alert-success mb-3">🎉 Correct! You found the right door!</div>';
+            } else {
+                message.innerHTML = '<div class="alert alert-danger mb-3">❌ Wrong door! Try again!</div>';
+            }
+        }
+    </script>
+    
+</body>
+</html>
